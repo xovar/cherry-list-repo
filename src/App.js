@@ -1,14 +1,17 @@
 import './App.css';
-import FrontPage from './Components/FrontPage/FrontPage';
-import OverView from './Components/OverView/OverView';
+import Home from './Components/pages/FrontPage/Home';
+import OverView from './Components/pages/OverView/OverView';
+import { Routes, Route, Link } from "react-router-dom";
 
 function App() {
   
   
   return (
     <>
-      <FrontPage></FrontPage>
-      <OverView></OverView>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/checkout/:id" element={<OverView />} />
+      </Routes>
     </>
   );
 }

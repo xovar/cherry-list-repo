@@ -1,6 +1,6 @@
 import React from 'react';
 
-function FrontPage() {
+function Home() {
     const products = [
         {
           id: 1,
@@ -59,4 +59,4 @@ function FrontPage() {
   );
 }
 
-export default FrontPage;
+export default Home;
