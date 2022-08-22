@@ -1,4 +1,5 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 
 function Home() {
     const products = [
@@ -12,7 +13,7 @@ function Home() {
           color: 'Black',
         },
         {
-          id: 1,
+          id: 2,
           name: 'Basic Tee',
           href: '#',
           imageSrc: 'https://tailwindui.com/img/ecommerce-images/product-page-01-related-product-01.jpg',
@@ -22,6 +23,14 @@ function Home() {
         }
         // More products...
       ]
+
+      const navigate = useNavigate();
+
+      const checkout = (id) =>{
+        navigate(`/checkout/${id}`);
+        console.log(id)
+
+      }
   return (
     <>
         <div className="bg-white">
@@ -30,7 +39,7 @@ function Home() {
 
                 <div className="mt-6 grid grid-cols-1 gap-y-10 gap-x-6 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
                 {products.map((product) => (
-                    <div key={product.id} className="group relative">
+                    <div key={product.id} className="group relative" onClick={() => checkout(product.id)}>
                     <div className="w-full min-h-80 bg-gray-200 aspect-w-1 aspect-h-1 rounded-md overflow-hidden group-hover:opacity-75 lg:h-80 lg:aspect-none">
                         <img
                         src={product.imageSrc}
